@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
+const cors = require('cors')
 const morgan = require("morgan");
 
 
@@ -15,14 +15,12 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
-
-const studentRouter = require("./routes/students.js");
-app.use("/student",studentRouter);
-
-
 //middleware
 app.use(express.json());
 app.use(morgan("common"));
+app.use(cors)
+const studentRouter = require("./routes/students");
+app.use("/student",studentRouter);
 
 app.listen(8070, () => {
   console.log("Backend server is running!");
