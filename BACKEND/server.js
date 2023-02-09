@@ -9,7 +9,7 @@ const morgan = require("morgan");
 dotenv.config();
 mongoose.set("strictQuery", false);
 mongoose.connect(
-  process.env.MONGO_URL,
+  process.env.MONGODB_URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("Connected to MongoDB");
@@ -18,7 +18,7 @@ mongoose.connect(
 //middleware
 app.use(express.json());
 app.use(morgan("common"));
-app.use(cors)
+app.use(cors())
 const studentRouter = require("./routes/students");
 app.use("/student",studentRouter);
 

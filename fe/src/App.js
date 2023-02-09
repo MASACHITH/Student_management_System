@@ -1,14 +1,13 @@
 
 import './App.css';
-import CounterClass from './component/CounterClass';
-import CounterFunction from './component/CounterFunction';
+import AddStudent from './component/AddStudent';
+import Header from './component/Header';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello React</h1>
-      <CounterClass/>
-      <CounterFunction/>
+      <Header/>
+      <AddStudent/>
     </div>
   );
 }
